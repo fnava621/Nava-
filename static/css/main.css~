@@ -1,0 +1,61 @@
+/* header.html style */
+
+#main_header {
+  border-bottom: 1px solid #E8E8E8;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 50px;
+  }
+
+#date {
+  color: black;
+  font-size: 14px;
+  }
+
+/* main.html */
+#sidebar {
+   position: fixed;
+   width: 250px;
+   height: 100%;
+   background: #FFF;
+   border-right: solid 1px #E8E8E8;
+   text-align: center;
+   padding-top: 15px;
+  }
+
+
+#posts{
+  margin-left: 250px;
+  margin-right: 105px;
+  }
+  
+h2{ 
+ font-size: 14px;
+ }
+
+.user_meta{
+  padding-top: 20px;
+  margin-left: 0px;
+  text-align: center;
+  }
+
+ #users {
+  font-size: 32px;
+  padding-bottom: 25px;
+ }
+ 
+.twitter .twitter1 {
+  font-size: 16px;
+  color: gray;
+ }
+
+#saying {
+  margin-right: 55px;
+  margin-left: 55px;
+  font-size: 16px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  color: #B8B8B8;
+ }
+

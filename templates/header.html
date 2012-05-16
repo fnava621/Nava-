@@ -1,0 +1,24 @@
+<ul class="unstyled">
+  <li id="happy_date">
+  {% block js %}
+    <script type="text/javascript">
+      <!-- 
+      // Array of day names
+      var dayNames = new Array("Sunday","Monday","Tuesday","Wednesday",
+      				"Thursday","Friday","Saturday");
+      var now = new Date();
+      document.write("Happy " + dayNames[now.getDay()] + ".");
+      // -->
+    </script>
+  </li>
+  <li id="date">
+    <script type="text/javascript">
+     var month = new Array("January", "February", "March", "April", "May", "June", "July", "August", "October", "November", "December");
+     var now = new Date();
+     document.write(month[now.getMonth()] + " " + now.getDate() + "," + " " + now.getFullYear());
+    </script>
+  </li>
+  {% endblock %}
+<ul>
+  
+
