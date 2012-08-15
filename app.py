@@ -5,13 +5,13 @@ import os
 from hashlib import md5
 from datetime import datetime
 from contextlib import closing
-from flask import Flask, render_template, request, session, redirect, url_for, abort, g, flash
+from flask import *
 from werkzeug import check_password_hash, generate_password_hash
 
 
 
 app = Flask(__name__)
-    
+
 
 @app.route('/')
 def home():

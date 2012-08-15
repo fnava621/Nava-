@@ -1,65 +1,152 @@
-/* Header.html style */
+/* main css styling */
 
-header {
-  border-bottom: 1px solid #E8E8E8;
-  padding-top: 20px;
-  padding-bottom: 10px;
-  padding-left: 300px;
-  }
+body {
+  margin: 0 auto;
+  font-family: 'Georgia', Times, serif;
+  font-size: 20px;
+  line-height: 1.6em;
+  padding: 15px;
+  width: 720px;
 
-#date {
+}
+
+.profiles > header, .markdown h1  {
+  text-align: left;
+    display: block;
+	line-height: 96px;
+	margin-bottom: 35px;
+}
+
+
+h1, h2, h3, h4 {
+  font-family: 'Myriad Pro', 'Droid Serif', 'Georgia', serif;
+  display: inline;
+  margin: 0;
+  font-weight: normal;
+}
+
+ul, li {
+  list-style-type: none;
+}
+
+
+header, footer, section, article {
+	display: block;
+}
+
+
+
+a, #subscribe a:hover {
+  text-decoration: none;
+  border-bottom: 1px dotted #bbb;
   color: black;
-  font-size: 16px;
-  font-weight: bold;
-  }
+}
 
-#happy_date {
-  float: right;
-  padding-right: 50px;
-  color: #B8B8B8;
- }
+a:hover, #subscribe a {
+  color: #b83000;
+}
 
-/* main.html */
-#sidebar {
-   position: fixed;
-   width: 250px;
-   height: 100%;
-   background: #FFF;
-   border-right: solid 1px #E8E8E8;
-   text-align: center;
-   padding-top: 15px;
-  }
+.profiles h1 {
+  font-size: 42px;
+  font-weight: normal;
+}
 
-#posts{
-  margin-left: 250px;
-  margin-right: 105px;
-  }
-  
-h2{ 
- font-size: 14px;
- }
 
-.user_meta{
-  padding-top: 20px;
-  margin-left: 0px;
+body > section > header > h1 a,
+body > section > header > h1 a:hover {
+  color: inherit;
+  border: 0;
+  text-decoration: none;
+}
+
+.profiles h1 > #ext,
+.profiles h1 > a #ext {
+  color: #b83000;
+}
+
+.profiles header {
+  line-height: normal;
+  margin-bottom: 25px;
   text-align: center;
-  }
+  padding: 0;
+}
 
- #users {
-  font-size: 32px;
-  padding-bottom: 25px;
- }
- 
-.twitter .twitter1 {
-  font-size: 16px;
-  color: gray;
- }
+.profiles header h1 {
+  font-family: 'Droid Serif', 'Myriad Pro', 'Georgia', sans-serif;
+  border-bottom: 1px solid #E8E8E8;
+  margin-bottom: 15px;
+  text-align: left;
+  padding: 0;
+  padding-bottom: 5px;
+  font-size: 60px;
+}
 
-#saying {
-  margin-right: 55px;
-  margin-left: 55px;
-  font-size: 16px;
-  padding-top: 25px;
-  padding-bottom: 25px;
-  color: #B8B8B8;
- }
+
+.profile {
+  text-decoration: none;
+  font-size: 28px;
+  border: 0;
+  color: black;
+}
+
+.profile:hover {
+  text-decoration: none;
+}
+
+.profile:hover:before {
+  color: black;
+}
+
+.profile:hover:after {
+  color: black;
+}
+
+.profile:before {
+  color: white;
+  border: 0;
+  content: "{";
+}
+
+.profile:after {
+  color: white;
+  border: 0;
+  content: "}";
+}
+
+/* Left side? */
+
+.profiles {
+  position: fixed;
+  -webkit-padding-start: 0;
+  bottom: 200px;
+  left: 85px;
+  text-align: right;
+}
+
+.profiles ul { 
+    margin-top: 15px; 
+    padding-left: 0px; 
+}
+
+.profiles li, .profiles ul {
+  display: inline;
+}
+
+
+.profile li:first-child {
+  margin-left:0px;
+  margin-right:20px;
+}
+
+#home > section {
+  min-width: 720px;
+  position: absolute;
+  margin: 0;
+  bottom: 0;
+  padding: 0;
+  height: 800px;
+  width: 960px;
+  background: url(/static/img/dinosketch7.gif) no-repeat scroll 125px bottom;
+}
+
+

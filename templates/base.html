@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>{% block title %}@fnava621 - Fernando Nava{% endblock %}</title>
+  <title>{% block title %}Nava.io{% endblock %}</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
@@ -15,26 +15,22 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 
-  <link rel="stylesheet" href="/static/css/bootstrap.css">
-  <link rel="stylesheet" href="/static/css/bootstrap-responsive.css">
-  <link rel="stylesheet/less" href="/static/css/main.less">
+  <!-- <link rel="stylesheet" href="/static/css/bootstrap.css">
+  <link rel="stylesheet" href="/static/css/bootstrap-responsive.css"> -->
   <link rel="stylesheet" href="/static/css/main.css">
-  {% block css %}{% endblock %}
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
 
-  <!-- Rather use `less.js` to dynamically compile your `stylesheet/less` files? -->
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.1.5/less-1.1.5.min.js"></script>
-  <script>window.less || document.write('<script src="/static/js/less.js">\x3C/script>')</script>
+  {% block css %}
+  {% endblock %}
+
 
   <!-- Need Modernizr? Uncomment the following script. -->
   <!-- <script src="/static/js/modernizr.js"></script> -->
 
 </head>
 
-<body>
-
-  <div id="main" role="main">
-    {% block main %}{% endblock %}
-  </div>
+<body id="home" role="home">
+    {% block home %}{% endblock %}
   <!-- JavaScript at the bottom for fast page loading -->
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
@@ -49,7 +45,7 @@
 
   <!-- Prompt IE < 8 users to install Chrome Frame.  -->
   <!--[if lt IE 8 ]>
-    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script src="//ajax.googleapis.com/ajaxo/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
     <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
   <![endif]-->
 

@@ -1,31 +1,16 @@
 {% extends "base.html" %}
-{% block js %}
-{% endblock %}
 
-
-{% block main %}
-<section id="sidebar" class="fixed">
-  <figure id="user_logo">
-    <a href="/">
-      <div class="logo"><img src="static/img/great-wolf.gif" alt="logo" height="120" width="120" /></div>
-    </a>
-  </figure>
-  <div class="user_meta">
-    <h1 id="users"><a  style="color: black" href="/">Nava</a></h1>
-    <ul id="linkbar" class="unstyled">
-      <li class="twitter"><a class="twitter1" href="http://twitter.com/fnava621">@fnava621</a></li>
+{% block home %}
+<section>
+  <div class="profiles">
+    <header>
+      <h1>Nava<span id="ext">.io</span></h1>
+    </header>
+    <ul>
+      <li><a class="profile" href="#">Projects</a></li>
+      <li><a class="profile" href="http://github.com/fnava621">Code</a></li>
+      <li><a class="profile" href="http://twitter.com/fnava621">Tweets</a></li>
     </ul>
-    <h3 id="saying">Thinking of a master plan</h3>
-  </div>
-</section>
-<header>
-  {% include "header.html" %}
-</header>
-<section id="posts">
-
-
-  <div>
-   
   </div>
 </section>
 {% endblock %}
