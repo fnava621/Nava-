@@ -17,7 +17,9 @@ app = Flask(__name__)
 def home():
   return render_template('home.html')
 
-                      
+@app.route('/blog')
+def blog():
+  return render_template('blog.html')
 
 @app.errorhandler(404)
 def page_not_found(error):
