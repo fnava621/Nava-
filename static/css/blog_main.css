@@ -32,16 +32,16 @@ h1 {
 }
 
 .blog .main {
-    width: 80.8888889%;
-    float: left;
-    
+    width: 75.8888889%;
+    float: left;   
 }
 
 .blog .other {
     padding-top: 60px;
     float: right;
     margin-right: -10%;
-    width: 28.7777778%;
+    width: 33.7777778%;
+
 }
 
 .lede {
