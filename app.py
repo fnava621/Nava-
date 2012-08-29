@@ -12,14 +12,14 @@ from werkzeug import check_password_hash, generate_password_hash
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def home():
-  return render_template('home.html')
+  return render_template('dyno_homepage.html')
 
 @app.route('/blog')
 def blog():
-  return render_template('blog.html')
+  return render_template('ogilvy.html')
+
 
 @app.errorhandler(404)
 def page_not_found(error):

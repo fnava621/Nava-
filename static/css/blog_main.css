@@ -1,0 +1,131 @@
+body {
+    background-color: #fff;
+    color: #555;
+    font-size: 14px;
+    font-family: lucida grande, tahoma, helvetica, arial, sans-serif;
+    line-height:1.5;
+}
+
+
+h1 {
+  margin: 0 0 1em 0;
+  font-weight: normal;
+  font-size: 16px;
+  color: #ef0d0c;
+}
+
+.recent-entries h1 {
+    font-size: 11px;
+    text-decoration: underline;
+}
+
+
+#page {
+    margin: 26px auto;
+    width: 80%;
+    /*border-top: solid 1px #F8F8F8;  Think about adding top div with your about info */
+}
+
+.blog {
+  margin: 0 auto;
+  width: 90.75%;
+}
+
+.blog .main {
+    width: 80.8888889%;
+    float: left;
+    
+}
+
+.blog .other {
+    padding-top: 60px;
+    float: right;
+    margin-right: -10%;
+    width: 28.7777778%;
+}
+
+.lede {
+    padding: 0.8em 7.2333%;
+    margin: 0 0 1em 0;
+    font-weight: normal;
+    color: #777777;
+}
+
+.recent-entries {
+    margin: 0 auto;
+    padding-left: 10px;
+    width: 90.7885196%; /* 231px / 331px */
+}
+
+
+.article {
+    padding-top: 10px;
+    padding-left: 8.48%; 
+    padding-right: 2%;/* 48px / 566px */
+}
+
+p #italic {
+    font-style: italic;
+}
+
+.me {
+    margin-left: -19.0886076%; 
+    float: left;
+    width: 15.556962%;
+}
+
+.me p {
+    color: #777777;
+    text-decoration: none;  
+    font-size: .8em;
+    padding-top: 8px;
+    
+ }
+
+
+
+.me a img {
+    border-radius: 45px;
+}
+
+.figure {
+    float: right;
+    margin-bottom: 0.5em;
+    margin-left: 2.53164557%;  /* 12px / 474px */
+    width: 48.7341772%;  /* 231px / 474px */
+
+}
+
+.me img {
+    border-radius: 5px;
+}
+
+.figure {
+    float: right;
+    margin-bottom: 0.5em;
+    margin-left: 2.53164557%;  /* 12px / 474px */
+    width: 48.7341772%;  /* 231px / 474px */
+
+}
+
+p { 
+    margin: 0;
+    padding-bottom: 18px;
+
+    }
+
+
+.figure {
+    float: right;
+    margin-bottom: 0.5em;
+    margin-left: 2.53164557%;  /* 12px / 474px */
+    width: 48.7341772%;  /* 231px / 474px */
+
+}
+
+
+
+img, embed, object, video {
+    max-width: 100%;
+}
+
