@@ -36,7 +36,7 @@ def hackernews():
 
 @app.route('/news')
 def news():
-  links = Tweet.query.filter_by(url_exists=True).order_by(Tweet.score_with_time.desc()).filter(Tweet.main_url != 'instagram.com', Tweet.main_url != 'www.instagram.com', Tweet.main_url != 'instagr.am', Tweet.main_url != 'youtube.com', Tweet.main_url != 'www.youtube.com', Tweet.main_url != 'www.vimeo.com', Tweet.main_url != 'twitpic.com', Tweet.main_url != 'www.twitpic.com', Tweet.main_url !='i.imgur.com', Tweet.main_url != 'www.yfrog.com',Tweet.main_url != 'twitter.yfrog.com', Tweet.main_url != 'twitter.com', Tweet.main_url != 'imgur.com', Tweet.main_url =! 't.co').limit(30).all()
+  links = Tweet.query.filter_by(url_exists=True).order_by(Tweet.score_with_time.desc()).filter(Tweet.main_url != 'instagram.com', Tweet.main_url != 'www.instagram.com', Tweet.main_url != 'instagr.am', Tweet.main_url != 'youtube.com', Tweet.main_url != 'www.youtube.com', Tweet.main_url != 'www.vimeo.com', Tweet.main_url != 'twitpic.com', Tweet.main_url != 'www.twitpic.com', Tweet.main_url !='i.imgur.com', Tweet.main_url != 'www.yfrog.com',Tweet.main_url != 'twitter.yfrog.com', Tweet.main_url != 'twitter.com', Tweet.main_url != 'imgur.com', Tweet.main_url != 't.co').limit(30).all()
 
   time = tweets_age_for_view(links)    
 
