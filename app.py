@@ -182,7 +182,7 @@ class Tweet(db.Model):
       self.tweet_id         = feed['id']
       self.text             = self.grab_text(feed)
       self.retweeted        = feed['retweeted'] 
-      self.date             = datetime(9,10,12)
+      self.date             = datetime(2012,9,10)
       self.url_exists       = self.bool_url_exists(feed)
       self.headline         = self.pull_headline(self.page_text)
       self.average_rt_count = 1.0
@@ -214,6 +214,7 @@ class Tweet(db.Model):
 
   def pull_headline(self, page_text):
     h = HTMLParser.HTMLParser()
+
     try:
       soup = BeautifulSoup(page_text)
     except:
@@ -248,10 +249,10 @@ class Tweet(db.Model):
     elif len(dash) > 0 and len(split_content[0] + split_content[1]) < 30:
       if separator == " \| ":
         separator = " | "
-        a = split_content[0] + unicode(separator) + split_content[1]
-        b = a.lstrip()
-        c = b.rstrip()
-        return c
+      a = split_content[0] + unicode(separator) + split_content[1]
+      b = a.lstrip()
+      c = b.rstrip()
+      return c
     else: 
       a = content.lstrip()
       b = a.rstrip()
