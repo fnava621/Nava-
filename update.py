@@ -169,11 +169,9 @@ def times_appears_in_stream(link, counter):
             if link in x[0]:
                 if x[1] == 1:
                     return 1
-                if x[1] == 2:
-                    return pow(1.25, 2)
-                if x[1] > 2:
-                    return pow(1.25, 3)
-                    
+                if x[1] > 1:
+                    return pow(1.65, x[1])
+
 
 
 def hacker_news(votes, item_hour_age, gravity=1.8):
