@@ -182,7 +182,7 @@ class Tweet(db.Model):
       self.tweet_id         = feed['id']
       self.text             = self.grab_text(feed)
       self.retweeted        = feed['retweeted'] 
-      self.date             = datetime(2012,9,10)
+      self.date             = datetime.utcnow()
       self.url_exists       = self.bool_url_exists(feed)
       self.headline         = self.pull_headline(self.page_text)
       self.average_rt_count = 1.0
