@@ -21,8 +21,13 @@ def blog():
   return render_template('ogilvy.html')
 
 @app.route('/hackernews')
-def news():
+def hackernews():
   return render_template('HackerNews.html')
+
+@app.route('/news')
+def news():
+  return render_template('show_links.html')
+
 
 
 @app.errorhandler(404)

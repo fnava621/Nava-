@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block body %}
+<body>
+
+
+  <div id="categories">
+    <div class="H-container">
+      <ul class="nav">
+        <li><a href="/">Nava News</a></li>
+        <li><a class="underline" href="/photos">Photos</a></li>
+        <li><a href="/videos">Videos</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="wrapper" class="BoardLayout" style="width: 1185px; opacity:1; visibility: visible;">
+    <div id="ColumnContainer" style="margin-top: 49px; height: 3805px;">
+      <div class="memo" style="display: none;"><img src="http://p.twimg.com/A1rK2RKCUAA-VmF.jpg" alt="" /></div>
+
+      {% for photo in photos %}
+      <div class="pin"><a href={{photo.picture}}><img src={{photo.picture}} alt="" /></a> 
+        <p class="description">{{photo.text}}</p>
+        <p class="stats">{{photo.retweet_count}} retweets</p>
+        <div class="person attribution">
+          <a href={{ "http://twitter.com/" + photo.screen_name }} class="ImgLink"><img src={{ photo.profile_picture }} alt="profile picture" /></a>
+          <a href={{ "http://twitter.com/" + photo.screen_name }}><p>@{{photo.screen_name}}</p></a>
+        </div>
+      </div>
+      {% endfor %}
+
+
+    </div>
+
+  </div>
+  <script>
+var $container = $('#wrapper');
+$container.imagesLoaded(function(){
+  $container.masonry({
+    itemSelector : '.pin',
+    columnWidth : 237
+  });
+});
+  </script>
+</body>
+{% endblock %}
+  

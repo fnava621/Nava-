@@ -1,150 +1,145 @@
-/* main css styling */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
-body {
-  margin: 0 auto;
-  font-family: 'Georgia', Times, serif;
-  font-size: 20px;
-  line-height: 1.6em;
-  padding: 15px;
-  width: 720px;
-
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
-
-.profiles > header, .markdown h1  {
-  text-align: left;
-    display: block;
-	line-height: 96px;
-	margin-bottom: 35px;
-}
-
-
-h1, h2, h3, h4 {
-  font-family: 'Myriad Pro', 'Droid Serif', 'Georgia', serif;
-  display: inline;
-  margin: 0;
-  font-weight: normal;
-}
-
-ul, li {
-  list-style-type: none;
-}
-
-
-header, footer, section, article {
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-
-
-
-a, #subscribe a:hover {
-  text-decoration: none;
-  border-bottom: 1px dotted #bbb;
-  color: black;
+body {
+	line-height: 1;
 }
-
-a:hover, #subscribe a {
-  color: #b83000;
+ol, ul {
+	list-style: none;
 }
-
-.profiles h1 {
-  font-size: 42px;
-  font-weight: normal;
+blockquote, q {
+	quotes: none;
 }
-
-
-body > section > header > h1 a,
-body > section > header > h1 a:hover {
-  color: inherit;
-  border: 0;
-  text-decoration: none;
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
 }
-
-.profiles h1 > #ext,
-.profiles h1 > a #ext {
-  color: #b83000;
-}
-
-.profiles header {
-  line-height: normal;
-  margin-bottom: 25px;
-  text-align: center;
-  padding: 0;
-}
-
-.profiles header h1 {
-  font-family: 'Droid Serif', 'Myriad Pro', 'Georgia', sans-serif;
-  border-bottom: 1px solid #E8E8E8;
-  margin-bottom: 15px;
-  text-align: left;
-  padding: 0;
-  padding-bottom: 5px;
-  font-size: 60px;
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 
-.profile {
-  text-decoration: none;
-  font-size: 28px;
-  border: 0;
-  color: black;
+
+
+body {
+    font: 100% normal Verdana, Georgia, serif;
 }
 
-.profile:hover {
-  text-decoration: none;
+.page {
+    margin: 0 auto;
+    margin-top: 5px;
+    width: 85%;
 }
 
-.profile:hover:before {
-  color: black;
-}
+.container {
+    margin: 0 auto;
+    width: 100%;
+    background-color: #f6f6ef;
 
-.profile:hover:after {
-  color: black;
-}
-
-.profile:before {
-  color: white;
-  border: 0;
-  content: "{";
-}
-
-.profile:after {
-  color: white;
-  border: 0;
-  content: "}";
-}
-
-/* Left side? */
-
-.profiles {
-  position: fixed;
-  -webkit-padding-start: 0;
-  bottom: 200px;
-  left: 85px;
-  text-align: right;
-}
-
-.profiles ul { 
-    margin-top: 15px; 
-    padding-left: 0px; 
-}
-
-.profiles li, .profiles ul {
-  display: inline;
 }
 
 
-.profile li:first-child {
-  margin-left:0px;
-  margin-right:20px;
+/* Navigation Bar styling */
+
+.nava {
+    font-weight: bold;
 }
 
-#home > section {
-  min-width: 720px;
-  position: absolute;
-  margin: 0;
-  bottom: 0;
-  padding: 0;
-  height: 800px;
-  width: 960px;
-  background: url(/static/img/dinosketch7.gif) no-repeat scroll 125px bottom;
+nav { 
+    margin: 0 auto;
+    width: 100%;
+    background: #ff6600;
+}
+
+
+nav ul li {
+    display: inline;
+    padding: 1px;
+}
+
+.nav-item {
+    font: 100% normal Verdana;
+}
+
+nav li a{
+    text-decoration: none;
+    color: black;
+    margin: auto;
+    display: inline;
+    padding: 2px;
+}
+
+nav ul {
+    padding: 3px;
+}
+
+nav img { 
+    max-width: 100%; 
+    border: solid 1px white;
+    float: left;
+    margin-right: 1px;
+}
+
+/* End NavBar */
+
+
+/* Content */
+
+.links {
+    margin-top: 8px;
+    margin-left: 3px;
+}
+
+.title { 
+font-family:Verdana; 
+font-size: 10pt; 
+color:#828282; 
+}
+
+.title a {
+    font-family: Verdana;
+    text-decoration: none;
+    color: #000000;
+}
+
+.sublink {
+    font-family: Verdana;
+    font-size: 8pt;
+    color: #828282;
+}
+
+.subtext {
+
+font-family: Verdana;
+font-size: 7pt;
+color: #828282;
 }
