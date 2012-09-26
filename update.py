@@ -170,7 +170,7 @@ def times_appears_in_stream(link, counter):
                 if x[1] == 1:
                     return 1
                 if x[1] > 1:
-                    return pow(1.65, x[1])
+                    return pow(1.75, x[1])
 
 
 
