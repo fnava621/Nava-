@@ -1,4 +1,4 @@
-import time, sched, requests, json, HTMLParser, 
+import time, sched, requests, json, HTMLParser 
 import urlparse, math, collections, re
 from datetime import datetime, timedelta
 from flask import *
