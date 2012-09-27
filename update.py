@@ -56,7 +56,7 @@ def get_tweets_update_db():
                     db.session.rollback()
     print "update successful"
 
-link_counter = links_number_of_times()
+#link_counter = links_number_of_times()
 
 # STILL NOT GOOD ENOUGH. FASTE FASTER FASTER
 
@@ -64,6 +64,7 @@ def update_averages_and_std_deviation():
     
     """Includes retweets of all tweets. Should it be only links?"""
     """tweets_in_db == Tweet.query.all()"""
+    link_counter = links_number_of_times()
 
     for z in following:
         user = Tweet.query.filter_by(user_id=z).all()
@@ -170,7 +171,10 @@ def times_appears_in_stream(link, counter):
                 if x[1] == 1:
                     return 1
                 if x[1] > 1:
-                    return pow(1.75, x[1])
+                    if x[1] < 5:
+                        return pow(1.75, x[1])
+                    else: 
+                        return pow(1.75, 5)
 
 
 
