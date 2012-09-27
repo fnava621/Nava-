@@ -6,6 +6,7 @@ from flask.ext.sqlalchemy import *
 from BeautifulSoup import BeautifulSoup
 from twython import Twython
 
+# potential bugs someone retweets something and it has high retweet_count the sigma_std_deviation will be much higher.
 
 
 app = Flask(__name__)
