@@ -173,7 +173,7 @@ def times_appears_in_stream(link, counter):
                     if x[1] < 5:
                         return pow(1.75, x[1])
                     else: 
-                        return pow(1.75, 5)
+                        return pow(1.75, 4)
 
 
 
