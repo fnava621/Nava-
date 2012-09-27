@@ -22,6 +22,8 @@ tavorite = Twython(app_key=os.environ['CONSUMER_KEY'],
 
 following = tavorite.getFriendsIDs()['ids']
 
+filter_out_media = ['instagram.com', 'www.instagram.com', 'instagr.am', 'youtube.com', 'www.youtube.com', 'www.vimeo.com', 'twitpic.com', 'www.twitpic.com', 'i.imgur.com', 'www.yfrog.com', 'twitter.yfrog.com','twitter.com', 'imgur.com', 't.co']
+
 @app.route('/')
 def home():
   return render_template('dyno_homepage.html')
@@ -37,15 +39,14 @@ def hackernews():
 
 @app.route('/news')
 def news():
-  links = Tweet.query.filter_by(url_exists=True).order_by(Tweet.score_with_time.desc()).filter(Tweet.main_url != 'instagram.com', Tweet.main_url != 'www.instagram.com', Tweet.main_url != 'instagr.am', Tweet.main_url != 'youtube.com', Tweet.main_url != 'www.youtube.com', Tweet.main_url != 'www.vimeo.com', Tweet.main_url != 'twitpic.com', Tweet.main_url != 'www.twitpic.com', Tweet.main_url !='i.imgur.com', Tweet.main_url != 'www.yfrog.com',Tweet.main_url != 'twitter.yfrog.com', Tweet.main_url != 'twitter.com', Tweet.main_url != 'imgur.com', Tweet.main_url != 't.co').limit(30).all()
-
+  links = Tweet.query.filter_by(url_exists=True).order_by(Tweet.score_with_time.desc()).filter(~Tweet.main_url.in_(filter_out_media)).limit(30).all()
   time = tweets_age_for_view(links)    
-
   return render_template('show_links.html', links=links, time=time)
 
 @app.route('/best')
 def best():
-  links = Tweet.query.filter_by(url_exists=True).order_by(Tweet.score.desc()).filter(Tweet.main_url != 'instagram.com', Tweet.main_url != 'www.instagram.com', Tweet.main_url != 'instagr.am', Tweet.main_url != 'youtube.com', Tweet.main_url != 'www.youtube.com', Tweet.main_url != 'www.vimeo.com', Tweet.main_url != 'twitpic.com', Tweet.main_url != 'www.twitpic.com', Tweet.main_url !='i.imgur.com', Tweet.main_url != 'www.yfrog.com').limit(50).all()
+  seven_days_ago = datetime.utcnow() - timedelta(days=7)                                                                                             
+  links = Tweet.query.filter_by(url_exists=True).order_by(Tweet.score.desc()).filter(Tweet.date > seven_days_ago).filter(~Tweet.main_url.in_(filter_out_media)).limit(50).all()
 
   time = tweets_age_for_view(links)
 
