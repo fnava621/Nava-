@@ -59,13 +59,10 @@ def photos():
 
 @app.route('/videos')
 def videos():
-  youtube = Tweet.query.filter_by(url_exists=True).filter(Tweet.main_url == 'www.youtube.com').order_by(Tweet.score.desc()).limit(50).all()
+  seven_days_ago = datetime.utcnow() - timedelta(days=7)
+  media = ['www.youtube.com', 'youtube.com', 'vimeo.com', 'www.vimeo.com']
+  videos = Tweet.query.filter_by(url_exists=True).filter(Tweet.date > seven_days_ago).filter(Tweet.main_url.in_(media)).order_by(Tweet.score.desc()).limit(40).all()
 
-  vimeo = Tweet.query.filter_by(url_exists=True).filter(Tweet.main_url == 'www.vimeo.com').order_by(Tweet.score.desc()).limit(50).all()
-
-
-  videos = youtube + vimeo
-  videos = videos[0:30]
   time = tweets_age_for_view(videos)
   return render_template('videos.html', videos=videos, time=time)
 
