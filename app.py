@@ -61,7 +61,7 @@ def photos():
 def videos():
   seven_days_ago = datetime.utcnow() - timedelta(days=7)
   media = ['www.youtube.com', 'youtube.com', 'vimeo.com', 'www.vimeo.com']
-  videos = Tweet.query.filter_by(url_exists=True).filter(Tweet.date > seven_days_ago).filter(Tweet.main_url.in_(media)).order_by(Tweet.score.desc()).limit(40).all()
+  videos = Tweet.query.filter_by(url_exists=True).filter(Tweet.date > seven_days_ago).filter(Tweet.main_url.in_(media)).order_by(Tweet.score.desc()).limit(50).all()
 
   time = tweets_age_for_view(videos)
   return render_template('videos.html', videos=videos, time=time)
@@ -258,7 +258,6 @@ class Tweet(db.Model):
       return b
 
 
-
 def tweet_age_in_hours(Tweet):
   created_at = Tweet.date
   right_now = datetime.utcnow()
@@ -271,11 +270,17 @@ def tweets_age_for_view(Tweets):
     
   for tweet in Tweets:
     age_in_hours = tweet_age_in_hours(tweet)
-    if age_in_hours > 24:
+    if age_in_hours >= 24:
       days = age_in_hours/24
-      list_of_tweet_age.append((str(days) + " days ago"))
+      if age_in_hours == 24:
+        list_of_tweet_age.append((str(days) + "day ago"))
+      else:
+        list_of_tweet_age.append((str(days) + " days ago"))
     else:
-      list_of_tweet_age.append((str(age_in_hours) + " hours ago"))
+      if age_in_hours == 1:
+        list_of_tweet_age.append((str(age_in_hours) + "hour ago"))
+      else:
+        list_of_tweet_age.append((str(age_in_hours) + " hours ago"))
   return list_of_tweet_age
 
 
