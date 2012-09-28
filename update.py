@@ -86,7 +86,7 @@ def update_averages_and_std_deviation():
             db.session.rollback()
 
         for x in user:
-            if tweet_age_in_hours(x) < 168000:
+            if tweet_age_in_hours(x) < 168:
                 if standard_deviation != 0:
                     x.std_dev_sigma    = (x.retweet_count - average)/standard_deviation
                 if len(retweet_counts) < 30 and x.std_dev_sigma > 3:
