@@ -8,7 +8,7 @@ from app import tavorite, tweet_age_in_hours, tweets_age_for_view, following
 
 
 
-def filter_for_double_links(all_links):
+def filter_for_double_links_from_same_person(all_links):
     filtered_links = []
 
     tweet_links = []
@@ -31,11 +31,10 @@ def filter_for_double_links(all_links):
 def links_number_of_times():
     Tweets = Tweet.query.order_by(Tweet.date.desc()).limit(1000).all()
     tweets = [x for x in Tweets if x.url_exists] 
-    links = filter_for_double_links(tweets)
+    links = filter_for_double_links_from_same_person(tweets)
     cnt = collections.Counter(links).most_common(100)
     return cnt
 
-# PROBLEMS BEING CAUSE BY Tweet.query.all()
 
 def get_tweets_update_db():
     get_tweets =  tavorite.getHomeTimeline(count=200, include_entities=1, include_retweets=1)
@@ -58,12 +57,9 @@ def get_tweets_update_db():
 
 link_counter = links_number_of_times()
 
-# STILL NOT GOOD ENOUGH. FASTE FASTER FASTER
+#FASTER FASTER FASTER
 
 def update_averages_and_std_deviation():
-    
-    """Includes retweets of all tweets. Should it be only links?"""
-    """tweets_in_db == Tweet.query.all()"""
 
     for z in following:
         user = Tweet.query.filter_by(user_id=z).all()
@@ -115,6 +111,7 @@ def update_averages_and_std_deviation():
 
 #Automate get new tweets every X minues and update the DB    
 def update_every_fifteen_minutes():
+    """Automates - every X minutes gets new tweets and update those tweets with there raking score"""
     s = sched.scheduler(time.time, time.sleep)
     print "updating feed beginning"
     s.enter(900, 1, get_tweets_update_db, ())
@@ -125,37 +122,6 @@ def update_every_fifteen_minutes():
 
 
 
-def media_in_link(item):
-    """filter() assumes None to be True"""
-    things_to_remove = ['http://instagr', 'twitpic', 'yfrog', 'youtube', 'vimeo', '.jpg', '.jpeg', '.png', '.gif']
-    filtr = []
-    for x in things_to_remove:
-        if x in item.tweet.link:
-            filtr.append(False)
-        else: 
-            filtr.append(True)
-    f = False not in filtr
-    return f
-
-
-def filter_for_double_links(all_links):
-    filtered_links = []
-
-    tweet_links = []
-
-    for lnk in all_links:
-        link = lnk.link
-        user_id = lnk.user_id
-
-        if (link, user_id) not in filtered_links:
-
-            x = (link, user_id)
-
-            filtered_links.append(x)
-
-            tweet_links.append(link)
-
-    return tweet_links
 
 
 def times_appears_in_stream(link, counter):
