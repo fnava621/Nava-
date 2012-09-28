@@ -36,6 +36,7 @@
               <td class="subtext">{{link.score}} points by @{{link.screen_name}} {{time[loop.index0]}} | comments</td>
             </tr>
             <tr style="height:1px"></tr>
+            {% endfor %}
             <tr>
               <td>
                 <table width="100%" cellspacing="0" cellpadding="1">
@@ -54,7 +55,6 @@
                 </center
               </td>
             </tr>
-            {% endfor %}
           </table>
         </div>
 
