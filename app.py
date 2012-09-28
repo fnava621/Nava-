@@ -46,8 +46,18 @@ def news():
 @app.route('/best')
 def best():
   seven_days_ago = datetime.utcnow() - timedelta(days=7)                                                                                             
-  links = Tweet.query.filter_by(url_exists=True).order_by(Tweet.score.desc()).filter(Tweet.date > seven_days_ago).filter(~Tweet.main_url.in_(filter_out_media)).limit(50).all()
+  links = Tweet.query.filter_by(url_exists=True).order_by(Tweet.score.desc()).filter(Tweet.date > seven_days_ago).filter(~Tweet.main_url.in_(filter_out_media)).limit(70).all()
+  
+  def filter_double_links(tweet_obj):
+    unique_links=[]
+    top_links_filtered = []
+    for x in tweet_obj:
+      if x.link not in unique_links:
+        unique_links.append(x.link)
+        top_links_filtered.append(x)
+    return top_links_filtered[0:50]
 
+  links = filter_double_links(links)
   time = tweets_age_for_view(links)
 
   return render_template('best_of_week.html', links=links, time=time)
