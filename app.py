@@ -64,7 +64,7 @@ def best():
 
 @app.route('/photos')
 def photos():
-  photos = Tweet.query.filter(Tweet.picture != unicode("")).order_by(Tweet.date.desc()).limit(50).all()
+  photos = Tweet.query.filter(Tweet.picture != unicode("")).order_by(Tweet.date.desc()).limit(75).all()
   return render_template('photos.html', photos=photos)
 
 @app.route('/videos')
