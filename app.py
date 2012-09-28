@@ -282,7 +282,7 @@ def tweets_age_for_view(Tweets):
     age_in_hours = tweet_age_in_hours(tweet)
     if age_in_hours >= 24:
       days = age_in_hours/24
-      if age_in_hours == 24:
+      if age_in_hours < 48:
         list_of_tweet_age.append((str(days) + "day ago"))
       else:
         list_of_tweet_age.append((str(days) + " days ago"))
