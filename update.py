@@ -29,7 +29,8 @@ def filter_for_double_links_from_same_person(all_links):
 
 
 def links_number_of_times():
-    Tweets = Tweet.query.order_by(Tweet.date.desc()).limit(1000).all()
+    five_days_ago = datetime.utcnow() - timedelta(days=5) 
+    Tweets = Tweet.query.filter(Tweet.date > five_days_ago).all()
     tweets = [x for x in Tweets if x.url_exists] 
     links = filter_for_double_links_from_same_person(tweets)
     cnt = collections.Counter(links).most_common(100)
