@@ -36,6 +36,10 @@ def blog():
 def hackernews():
   return render_template('HackerNews.html')
 
+@app.route('/LearnableProgramming')
+def learn():
+  return render_template('LearnableProgramming.html')
+
 
 @app.route('/news')
 def news():
