@@ -73,9 +73,9 @@ def photos():
 
 @app.route('/videos')
 def videos():
-  five_days_ago = datetime.utcnow() - timedelta(days=5)
+  three_days_ago = datetime.utcnow() - timedelta(days=3)
   media = ['www.youtube.com', 'youtube.com', 'vimeo.com', 'www.vimeo.com']
-  videos = Tweet.query.filter_by(url_exists=True).filter(Tweet.date > five_days_ago).filter(Tweet.main_url.in_(media)).order_by(Tweet.score.desc()).limit(50).all()
+  videos = Tweet.query.filter_by(url_exists=True).filter(Tweet.date > three_days_ago).filter(Tweet.main_url.in_(media)).order_by(Tweet.score.desc()).limit(50).all()
 
   time = tweets_age_for_view(videos)
   return render_template('videos.html', videos=videos, time=time)
