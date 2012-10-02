@@ -30,6 +30,10 @@ def home():
 
 @app.route('/blog')
 def blog():
+  return render_template('blog.html')
+
+@app.route('/ogilvy')
+def ogilvy():
   return render_template('ogilvy.html')
 
 @app.route('/hackernews')
