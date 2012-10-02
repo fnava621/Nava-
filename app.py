@@ -199,7 +199,7 @@ class Tweet(db.Model):
       self.url_exists       = self.bool_url_exists(feed)
       self.headline         = self.pull_headline(self.page_text)
       self.average_rt_count = 1.0
-      self.std_deviation    = 1.0
+      self.std_deviation    = .25
       self.std_dev_sigma    = .25
       self.score            = 0.5
       self.score_with_time  = 0.5
