@@ -30,8 +30,10 @@
         
         <div class="main">
           <div class="article">
+            {% block blogposts %}
             <p class="lede">{% block date %}{% endblock %}</p>
             {% block post %}{% endblock %}
+            {% endblock %}
 
           </div>
         </div>

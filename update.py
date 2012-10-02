@@ -86,6 +86,9 @@ def update_averages_and_std_deviation():
             if tweet_age_in_hours(x) < 168:
                 if standard_deviation != 0:
                     x.std_dev_sigma    = (x.retweet_count - average)/standard_deviation
+                if standard_deviation == 0:
+                    x.std_dev_sigma = 0
+
                 if len(retweet_counts) < 25 and x.std_dev_sigma > 3:
                     x.std_dev_sigma = 3.0
 
