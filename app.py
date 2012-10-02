@@ -13,10 +13,11 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 
+
 db = SQLAlchemy(app)
 
 tavorite = Twython(app_key=os.environ['CONSUMER_KEY'],
-                   app_secret=os.environ['CONSUMER_SECRET'],
+                  app_secret=os.environ['CONSUMER_SECRET'],
                    oauth_token=os.environ['ACCESS_TOKEN'],
                    oauth_token_secret=os.environ['ACCESS_TOKEN_SECRET'])
 
