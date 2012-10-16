@@ -23,6 +23,9 @@ tavorite = Twython(app_key=os.environ['CONSUMER_KEY'],
 
 following = tavorite.getFriendsIDs()['ids']
 
+filter_out_media = ['instagram.com', 'www.instagram.com', 'instagr.am', 'youtube.com', 'www.youtube.com', 'www.vimeo.com', 'vimeo.com', 'twitpic.com', 'www.twitpic.com', 'i.imgur.com', 'www.yfrog.com', 'twitter.yfrog.com','twitter.com', 'imgur.com', 't.co', 'join.app.net', 'd.pr', 'www.mobypicture.com', 'i.appimg.net', 'foursquare.com', 'www.foursquare.com', 'www.path.com', 'path.com', 'cl.ly', 'm.youtube.com', 'mobile.twitter.com', 'alpha.app.net', 'alpha-api.app.net', 'appnetizens.com', 'jer.srcd.mp', 'm.flickr.com']
+
+
 def filter_double_links(tweet_obj):
   unique_links=[]
   top_links_filtered = []
@@ -62,9 +65,9 @@ def news():
 
 @app.route('/best')
 def best():
-  five_days_ago = datetime.utcnow() - timedelta(days=5)                                                                                             
+  five_days_ago = datetime.utcnow() - timedelta(days=5)                                    
   links = Tweet.query.filter_by(url_exists=True).order_by(Tweet.score.desc()).filter(Tweet.date > five_days_ago).filter(~Tweet.main_url.in_(filter_out_media)).limit(70).all()
-  
+
   links = filter_double_links(links)
   time = tweets_age_for_view(links)
 
