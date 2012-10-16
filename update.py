@@ -127,7 +127,6 @@ def update_every_fifteen_minutes():
 
 
 
-
 def times_appears_in_stream(link, counter):
     links_only = []
     for x in counter:

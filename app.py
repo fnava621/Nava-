@@ -23,7 +23,18 @@ tavorite = Twython(app_key=os.environ['CONSUMER_KEY'],
 
 following = tavorite.getFriendsIDs()['ids']
 
-filter_out_media = ['instagram.com', 'www.instagram.com', 'instagr.am', 'youtube.com', 'www.youtube.com', 'www.vimeo.com', 'twitpic.com', 'www.twitpic.com', 'i.imgur.com', 'www.yfrog.com', 'twitter.yfrog.com','twitter.com', 'imgur.com', 't.co']
+def filter_double_links(tweet_obj):
+    unique_links=[]
+    top_links_filtered = []
+    for x in tweet_obj:
+      if x.link not in unique_links:
+        unique_links.append(x.link)
+        top_links_filtered.append(x)
+    return top_links_filtered[0:50]
+
+  links = filter_double_links(links)
+  time = tweets_age_for_view(links)
+
 
 @app.route('/')
 def home():
@@ -57,15 +68,6 @@ def best():
   five_days_ago = datetime.utcnow() - timedelta(days=5)                                                                                             
   links = Tweet.query.filter_by(url_exists=True).order_by(Tweet.score.desc()).filter(Tweet.date > five_days_ago).filter(~Tweet.main_url.in_(filter_out_media)).limit(70).all()
   
-  def filter_double_links(tweet_obj):
-    unique_links=[]
-    top_links_filtered = []
-    for x in tweet_obj:
-      if x.link not in unique_links:
-        unique_links.append(x.link)
-        top_links_filtered.append(x)
-    return top_links_filtered[0:50]
-
   links = filter_double_links(links)
   time = tweets_age_for_view(links)
 
@@ -81,7 +83,7 @@ def videos():
   three_days_ago = datetime.utcnow() - timedelta(days=3)
   media = ['www.youtube.com', 'youtube.com', 'vimeo.com', 'www.vimeo.com']
   videos = Tweet.query.filter_by(url_exists=True).filter(Tweet.date > three_days_ago).filter(Tweet.main_url.in_(media)).order_by(Tweet.score.desc()).limit(50).all()
-
+  videos = filter_double_links(videos)
   time = tweets_age_for_view(videos)
   return render_template('videos.html', videos=videos, time=time)
 
