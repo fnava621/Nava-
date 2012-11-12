@@ -56,6 +56,8 @@ def learn():
   return render_template('LearnableProgramming.html')
 
 
+
+
 @app.route('/news')
 def news():
   links = Tweet.query.filter_by(url_exists=True).order_by(Tweet.score_with_time.desc()).filter(~Tweet.main_url.in_(filter_out_media)).limit(30).all()
@@ -85,8 +87,6 @@ def videos():
   videos = filter_double_links(videos)
   time = tweets_age_for_view(videos)
   return render_template('videos.html', videos=videos, time=time)
-
-
 
 
 @app.errorhandler(404)
