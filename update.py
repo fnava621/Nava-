@@ -79,7 +79,7 @@ def update_averages_and_std_deviation():
         Tweet.query.filter_by(user_id=z).update(dict(average_rt_count=average, std_deviation=standard_deviation))
         try: 
             db.session.commit()
-        except
+        except:
             db.session.rollback()
 
         for x in user:
