@@ -113,13 +113,13 @@ def update_averages_and_std_deviation():
 
 
 
-#Automate get new tweets every X minues and update the DB    
+
 def update_every_fifteen_minutes():
     """Automates - every X minutes gets new tweets and update those tweets with there raking score"""
-    #s = sched.scheduler(time.time, time.sleep)
+    s = sched.scheduler(time.time, time.sleep)
     print "updating feed beginning"
-    #s.enter(900, 1, get_tweets_update_db, ())
-    #s.run()
+    s.enter(900, 1, get_tweets_update_db, ())
+    s.run()
     get_tweets_update_db()
     update_averages_and_std_deviation()
     update_every_fifteen_minutes()
